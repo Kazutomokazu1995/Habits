@@ -1,11 +1,7 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import vuetify from "./plugins/vuetify";
-import store from "./store";
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-
-Vue.config.productionTip = false;
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,11 +13,5 @@ const firebaseConfig = {
   appId: "1:556058688196:web:661c2c42608d1613496791",
 };
 
-initializeApp(firebaseConfig);
-
-new Vue({
-  render: (h) => h(App),
-  vuetify,
-  store,
-  router,
-}).$mount("#app");
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
