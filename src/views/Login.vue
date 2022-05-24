@@ -24,13 +24,23 @@
         <v-card-actions>
           <v-btn class="info" @click="login">ログイン</v-btn>
         </v-card-actions>
+        <v-card-actions>
+          <v-btn class="error" @click="loginGoogle"
+            >Googleアカウントでログイン</v-btn
+          >
+        </v-card-actions>
       </v-card-text>
     </v-card>
   </v-app>
 </template>
 
 <script>
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithRedirect,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import router from "../router";
 
 export default {
@@ -60,6 +70,12 @@ export default {
           this.isLoginError = true;
           console.log("LoginError:" + error);
         });
+    },
+    loginGoogle() {
+      const auth = getAuth();
+      const provider = new GoogleAuthProvider();
+      console.log("click google\n");
+      signInWithRedirect(auth, provider);
     },
   },
 };
