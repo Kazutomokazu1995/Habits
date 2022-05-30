@@ -97,6 +97,7 @@ const actions = {
         title: createdata.title,
         subTitle: createdata.subTitle,
         date: createdata.date,
+        startDate: createdata.startDate,
         priority: createdata.prinum,
       };
       await setDoc(doc(userCollection), data);

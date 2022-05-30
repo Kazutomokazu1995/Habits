@@ -65,12 +65,20 @@ export default {
       subTitle: "",
       valid: true,
       date: "",
+      startDate: "",
       menu: false,
       listId: "",
       titleRules: [(v) => !!v || "入力必須です。"],
       priority: ["低", "中", "高"],
       prioritySelect: "低",
     };
+  },
+  created() {
+    var dt = new Date();
+    var y = dt.getFullYear();
+    var m = ("00" + (dt.getMonth() + 1)).slice(-2);
+    var d = ("00" + dt.getDate()).slice(-2);
+    this.startDate = y + "-" + m + "-" + d;
   },
   computed: {
     isCreateError() {
@@ -117,6 +125,7 @@ export default {
         title: this.title,
         subTitle: this.subTitle,
         date: this.date,
+        startDate: this.startDate,
       });
     },
   },
